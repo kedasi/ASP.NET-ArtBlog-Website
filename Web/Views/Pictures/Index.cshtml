@@ -1,0 +1,45 @@
+﻿@model Web.ViewModels.PictureIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Pictures.FirstOrDefault().User.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pictures.FirstOrDefault().PictureTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pictures.FirstOrDefault().PictureUrl)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Pictures) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PictureTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PictureUrl)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PictureId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PictureId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PictureId })
+        </td>
+    </tr>
+}
+
+</table>

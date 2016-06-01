@@ -1,0 +1,42 @@
+﻿@model Domain.Models.BlogEntry
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BlogEntry</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogText)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogEntryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

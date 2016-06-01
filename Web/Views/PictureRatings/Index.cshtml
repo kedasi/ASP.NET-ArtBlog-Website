@@ -1,0 +1,39 @@
+﻿@model Web.ViewModels.PictureRatingIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PictureRatings.FirstOrDefault().Picture.PictureTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PictureRatings.FirstOrDefault().Rating.RatingId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.PictureRatings) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Picture.PictureTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating.RatingId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PictureRatingId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PictureRatingId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PictureRatingId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,45 @@
+﻿@model Web.ViewModels.BlogEntryIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogEntries.FirstOrDefault().User.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogEntries.FirstOrDefault().BlogTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogEntries.FirstOrDefault().BlogText)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.BlogEntries) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogText)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BlogEntryId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BlogEntryId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BlogEntryId })
+        </td>
+    </tr>
+}
+
+</table>

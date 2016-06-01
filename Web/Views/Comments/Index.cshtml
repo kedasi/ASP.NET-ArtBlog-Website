@@ -1,0 +1,45 @@
+﻿@model Web.ViewModels.CommentIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments.FirstOrDefault().Picture.PictureTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments.FirstOrDefault().User.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments.FirstOrDefault().CommentText)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Comments) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Picture.PictureTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommentText)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CommentId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CommentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CommentId })
+        </td>
+    </tr>
+}
+
+</table>
