@@ -79,6 +79,60 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You have exceeded the maximum symbols allowed in your blog entry..
+        /// </summary>
+        public static string BlogTextTooLong {
+            get {
+                return ResourceManager.GetString("BlogTextTooLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have to write at least 50 symbols in the body of your blog entry..
+        /// </summary>
+        public static string BlogTextTooShort {
+            get {
+                return ResourceManager.GetString("BlogTextTooShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The title of your blog entry is too long..
+        /// </summary>
+        public static string BlogTitleTooLong {
+            get {
+                return ResourceManager.GetString("BlogTitleTooLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The title of your blog entry must have at least one symbol..
+        /// </summary>
+        public static string BlogTitleTooShort {
+            get {
+                return ResourceManager.GetString("BlogTitleTooShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have exceeded the maximum symbols allowed in your comment..
+        /// </summary>
+        public static string CommentTooLong {
+            get {
+                return ResourceManager.GetString("CommentTooLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your comment should have at least 5 symbols!.
+        /// </summary>
+        public static string CommentTooShort {
+            get {
+                return ResourceManager.GetString("CommentTooShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact type name too long..
         /// </summary>
         public static string ContactTypeNameLengthError {
@@ -160,6 +214,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The password you entered has exceeded the allowed symbol count!.
+        /// </summary>
+        public static string PasswordTooLong {
+            get {
+                return ResourceManager.GetString("PasswordTooLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password you entered has to be at least 6 letters..
+        /// </summary>
+        public static string PasswordTooShort {
+            get {
+                return ResourceManager.GetString("PasswordTooShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date.
         /// </summary>
         public static string Person_Date2 {
@@ -183,6 +255,51 @@ namespace Resources {
         public static string Person_Time2 {
             get {
                 return ResourceManager.GetString("Person_Time2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your picture&apos;s title has exceeded the allowed symbol count!.
+        /// </summary>
+        public static string PicTitleTooLong {
+            get {
+                return ResourceManager.GetString("PicTitleTooLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your picture&apos;s title should have at least 1 symbol in it..
+        /// </summary>
+        public static string PicTitleTooShort {
+            get {
+                return ResourceManager.GetString("PicTitleTooShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The text you entered has exceeded the allowed symbol count..
+        /// </summary>
+        public static string TextTooLong {
+            get {
+                return ResourceManager.GetString("TextTooLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The username you entered has exceeded the allowed symbol count!.
+        /// </summary>
+        public static string UsernameTooLong {
+            get {
+                return ResourceManager.GetString("UsernameTooLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The username you entered is too short..
+        /// </summary>
+        public static string UsernameTooShort {
+            get {
+                return ResourceManager.GetString("UsernameTooShort", resourceCulture);
             }
         }
     }

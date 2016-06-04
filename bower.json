@@ -1,0 +1,26 @@
+{
+  "name": "ArtBlog",
+  "homepage": "https://github.com/kedasi/ASP.NET-ArtBlog-Website",
+  "authors": [
+    "Kerli Edasi <kedasi@itcollege.ee>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "Web/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "globalize": "^1.1.1",
+    "jquery-validation-globalize": "^1.0.0",
+    "moment": "^2.13.0",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.37",
+    "bootstrap": "^3.3.6",
+    "respond": "^1.4.2"
+  }
+}

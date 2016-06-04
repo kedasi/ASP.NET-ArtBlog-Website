@@ -11,7 +11,11 @@ namespace Domain.Models
     public class Picture
     {
         public int PictureId { get; set; }
-        [Required, MaxLength(50)]
+
+
+        [Required(ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resources.Common))]
+        [MaxLength(1000, ErrorMessageResourceName = nameof(Resources.Domain.PicTitleTooLong), ErrorMessageResourceType = typeof(Resources.Domain))]
+        [MinLength(5, ErrorMessageResourceName = nameof(Resources.Domain.PicTitleTooShort), ErrorMessageResourceType = typeof(Resources.Domain))]
         public string PictureTitle { get; set; }
         [Required, MaxLength(1000)]
         public string PictureUrl { get; set; }

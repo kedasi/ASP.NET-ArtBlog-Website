@@ -123,6 +123,24 @@
   <data name="ArticleHeadline" xml:space="preserve">
     <value>Headline</value>
   </data>
+  <data name="BlogTextTooLong" xml:space="preserve">
+    <value>You have exceeded the maximum symbols allowed in your blog entry.</value>
+  </data>
+  <data name="BlogTextTooShort" xml:space="preserve">
+    <value>You have to write at least 50 symbols in the body of your blog entry.</value>
+  </data>
+  <data name="BlogTitleTooLong" xml:space="preserve">
+    <value>The title of your blog entry is too long.</value>
+  </data>
+  <data name="BlogTitleTooShort" xml:space="preserve">
+    <value>The title of your blog entry must have at least one symbol.</value>
+  </data>
+  <data name="CommentTooLong" xml:space="preserve">
+    <value>You have exceeded the maximum symbols allowed in your comment.</value>
+  </data>
+  <data name="CommentTooShort" xml:space="preserve">
+    <value>Your comment should have at least 5 symbols!</value>
+  </data>
   <data name="ContactTypeNameLengthError" xml:space="preserve">
     <value>Contact type name too long.</value>
   </data>
@@ -150,6 +168,12 @@
   <data name="LastnameLengthError" xml:space="preserve">
     <value>Last name too long.</value>
   </data>
+  <data name="PasswordTooLong" xml:space="preserve">
+    <value>The password you entered has exceeded the allowed symbol count!</value>
+  </data>
+  <data name="PasswordTooShort" xml:space="preserve">
+    <value>The password you entered has to be at least 6 letters.</value>
+  </data>
   <data name="Person_Date2" xml:space="preserve">
     <value>Date</value>
   </data>
@@ -158,5 +182,20 @@
   </data>
   <data name="Person_Time2" xml:space="preserve">
     <value>Time</value>
+  </data>
+  <data name="PicTitleTooLong" xml:space="preserve">
+    <value>Your picture's title has exceeded the allowed symbol count!</value>
+  </data>
+  <data name="PicTitleTooShort" xml:space="preserve">
+    <value>Your picture's title should have at least 1 symbol in it.</value>
+  </data>
+  <data name="TextTooLong" xml:space="preserve">
+    <value>The text you entered has exceeded the allowed symbol count.</value>
+  </data>
+  <data name="UsernameTooLong" xml:space="preserve">
+    <value>The username you entered has exceeded the allowed symbol count!</value>
+  </data>
+  <data name="UsernameTooShort" xml:space="preserve">
+    <value>The username you entered is too short.</value>
   </data>
 </root>

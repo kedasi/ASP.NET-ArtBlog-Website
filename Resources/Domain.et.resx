@@ -123,6 +123,24 @@
   <data name="ArticleHeadline" xml:space="preserve">
     <value>Pealkiri</value>
   </data>
+  <data name="BlogTextTooLong" xml:space="preserve">
+    <value>Teie postituse sisu ületab lubatud kirjamärkide arvu.</value>
+  </data>
+  <data name="BlogTextTooShort" xml:space="preserve">
+    <value>Te peate kirjutama vähemalt 50 kirjamärki oma postituse sisusse.</value>
+  </data>
+  <data name="BlogTitleTooLong" xml:space="preserve">
+    <value>Teie postituse pealkiri ületab lubatud kirjamärkide arvu!</value>
+  </data>
+  <data name="BlogTitleTooShort" xml:space="preserve">
+    <value>Teie postituse pealkiri peab sisaldama vähemalt ühte kirjamärki.</value>
+  </data>
+  <data name="CommentTooLong" xml:space="preserve">
+    <value>Teie kommentaari sisu on ületanud lubatud kirjamärkide arvu!</value>
+  </data>
+  <data name="CommentTooShort" xml:space="preserve">
+    <value>Teie kommentaaris peaks olema vähemalt 5 kirjamärki.</value>
+  </data>
   <data name="FirstLastName" xml:space="preserve">
     <value>Ees-, perekonnanimi</value>
   </data>
@@ -149,6 +167,12 @@
   </data>
   <data name="Person_Time2" xml:space="preserve">
     <value>Kellaaeg</value>
+  </data>
+  <data name="PicTitleTooLong" xml:space="preserve">
+    <value>Teie pildi pealkiri ületab lubatud tähemärkide arvu.</value>
+  </data>
+  <data name="PicTitleTooShort" xml:space="preserve">
+    <value>Teie pildi pealkirjas peaks olema vähemalt üks tähemärk.</value>
   </data>
   <data name="SelectOptionLabel" xml:space="preserve">
     <value>--- Vali! ---</value>

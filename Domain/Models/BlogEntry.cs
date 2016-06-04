@@ -10,10 +10,15 @@ namespace Domain.Models
    public class BlogEntry
     {
        public int BlogEntryId { get; set; }
-        [MaxLength(144), Required]
 
-       public string BlogTitle { get; set; }
-        [MaxLength(10000), MinLength(50), Required]
+        [Required(ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resources.Common))]
+        [MaxLength(144, ErrorMessageResourceName = nameof(Resources.Domain.BlogTitleTooLong), ErrorMessageResourceType = typeof(Resources.Domain))]
+        [MinLength(1, ErrorMessageResourceName = nameof(Resources.Domain.BlogTitleTooShort), ErrorMessageResourceType = typeof(Resources.Domain))]
+        public string BlogTitle { get; set; }
+
+        [Required(ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resources.Common))]
+        [MaxLength(10000, ErrorMessageResourceName = nameof(Resources.Domain.BlogTextTooLong), ErrorMessageResourceType = typeof(Resources.Domain))]
+        [MinLength(50, ErrorMessageResourceName = nameof(Resources.Domain.BlogTextTooShort), ErrorMessageResourceType = typeof(Resources.Domain))]
        public string BlogText { get; set; }
 
 

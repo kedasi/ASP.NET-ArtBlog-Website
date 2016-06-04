@@ -11,19 +11,26 @@ namespace Domain.Models
     {
         public int UserId { get; set; }
 
-        [MinLength(3),MaxLength(35), Required]
-        public string Username { get; set; }
-        [MinLength(6), MaxLength(35), Required]
+        [Required(ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resources.Common))]
+        [MaxLength(35, ErrorMessageResourceName = nameof(Resources.Domain.UsernameTooLong), ErrorMessageResourceType = typeof(Resources.Domain))]
+        [MinLength(3, ErrorMessageResourceName = nameof(Resources.Domain.UsernameTooShort), ErrorMessageResourceType = typeof(Resources.Domain))]
+       public string Username { get; set; }
+
+        [Required(ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resources.Common))]
+        [MaxLength(35, ErrorMessageResourceName = nameof(Resources.Domain.PasswordTooLong), ErrorMessageResourceType = typeof(Resources.Domain))]
+        [MinLength(6, ErrorMessageResourceName = nameof(Resources.Domain.PasswordTooShort), ErrorMessageResourceType = typeof(Resources.Domain))]
         public string Password { get; set; }
-        [MaxLength(35)]
-        public string Firstname { get; set; }
-        [MaxLength(35)]
+
+        [MaxLength(35, ErrorMessageResourceName = nameof(Resources.Domain.TextTooLong), ErrorMessageResourceType = typeof(Resources.Domain))]
+       public string Firstname { get; set; }
+
+        [MaxLength(35, ErrorMessageResourceName = nameof(Resources.Domain.TextTooLong), ErrorMessageResourceType = typeof(Resources.Domain))]
         public string Lastname { get; set; }
         [DataType(DataType.Date), Required]
         public DateTime Birthdate { get; set; }
-        [MaxLength(100)]
+        [MaxLength(35, ErrorMessageResourceName = nameof(Resources.Domain.TextTooLong), ErrorMessageResourceType = typeof(Resources.Domain))]
         public string Location { get; set; }
-        [MaxLength(5000)]
+        [MaxLength(35, ErrorMessageResourceName = nameof(Resources.Domain.TextTooLong), ErrorMessageResourceType = typeof(Resources.Domain))]
         public string AboutMe { get; set; }
 
         //fk

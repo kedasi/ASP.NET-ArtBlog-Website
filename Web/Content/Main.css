@@ -1,0 +1,253 @@
+﻿
+body {
+    background-image: url(blurbg.jpg);
+    background-repeat: no-repeat;
+    background-size: 1366px 768px;
+    min-width: 1366px;
+    min-height: 768px;
+    background-position: center;
+   background-attachment: fixed;
+    
+    
+   
+     
+}
+.maincontainer {
+     min-width: 900px
+}
+.navigationbar {
+    min-width: 900px
+}
+html {
+    height: 100%
+}
+@font-face {
+    font-family: "aboutme"; /*a name to be used later*/
+    src: url('aboutmecandy.ttf'); /*URL to font*/
+}
+
+#banner {
+     margin-left: 15% !important;
+    margin-right: 15% !important;
+    margin-top: 8%;
+    height: 60%;
+    width: 70%;
+}
+.navigationbar  {
+    display:inline-block;
+    position:relative;
+}
+.navigationbar .searchbar {
+    position: absolute;
+   top: 86%;
+    left: 58%
+
+}
+
+.navigationbar #searchtext {
+    width: 270px;
+    background-color: #f7ac8c;
+    border: none;
+    border-radius: 0;
+    color: #bf3543;
+    font-weight: bold;
+    
+    font-family: 'Raleway'
+}
+.form-control::-webkit-input-placeholder {
+    color: #912e4a;
+    text-align: right;
+    text-transform: uppercase;
+    
+}
+.navigationbar .btn#searchbtn {
+    position: absolute;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    left: 78%;
+    top:85%
+    
+}
+.drop {
+    margin-right: 3%;
+    border: none;
+    border-radius: 0;
+    background-color: #f7ac8c;
+    
+    
+
+}
+.drop li a {
+    font-family: 'Raleway';
+    font-weight: bold;
+    color: #912e4a
+}
+.drop > li a:hover {
+    background-color: #fe714e;
+    font-weight: bold
+}
+
+.navigationbar .btn#menubtn {
+    position: absolute;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    left: 81%;
+    top:85%
+    
+}
+.navigationbar .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+    background: none;
+    border: 0;
+    border-radius: 0;
+    outline: none !important;
+}
+
+
+
+hr {
+    margin-left: 40px;
+    margin-right: 40px;
+    height: 1px;
+    background-color: #CA2A3F;
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+::-webkit-scrollbar-track {
+   background-color:  white;
+    border-radius: 0px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background-color: #FFDBC5;
+}
+.maincontainer {
+    margin-left: 15% !important;
+    margin-right: 15% !important;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    margin-bottom: 20px;
+    height: 350px;
+    max-height: 350px;
+
+}
+
+
+#aboutmehead {
+    text-align: center;
+    font-family: "aboutme";
+    font-size: 74px;
+}
+
+#containleft {
+    flex: 1;
+    background-color: white;
+    margin: 5px;
+    margin-right: 0;
+    width: calc(100% - 200px);
+    font-family: 'Raleway', sans-serif;
+    overflow-y: scroll;
+    
+}
+#aboutme {
+    margin: 50px;
+
+}
+#gallery {
+    margin: 50px;
+}
+
+
+#containright {
+       background-color: white;
+    margin: 5px;
+    margin-left: 0;
+    font-family: 'Raleway', sans-serif;
+    width: 250px;
+    overflow-y: scroll;
+}
+#blog {
+    margin: 20px;
+}
+
+.btnedit {
+    background-color: #d09431;
+    border: none;
+    border-radius: 50%;
+    visibility: hidden;
+    width: 8%;
+    margin-left: 95%;
+    margin-top: 30%;
+    position: absolute;
+}
+#aboutme {
+    position: relative;
+}
+#aboutme:hover .btnedit {
+    visibility: visible
+}
+
+.btnartedit {
+    background-color: #d09431;
+    border: none;
+    border-radius: 50%;
+    visibility: hidden;
+    width: 8%;
+    margin-left: 95%;
+    margin-top: 10%;
+    position: absolute;
+}
+.btnadd {
+    background-color: #bf3543;
+    border: none;
+    border-radius: 50%;
+    visibility: hidden;
+    width: 8%;
+    margin-left: 85%;
+    margin-top: 10%;
+    position: absolute;
+}
+
+#gallery {
+    position: relative;
+}
+#gallery:hover .btnartedit {
+    visibility: visible
+}
+#gallery:hover .btnadd {
+    visibility: visible
+}
+.btnblogadd {
+    background-color: #bf3543;
+    border: none;
+    border-radius: 50%;
+    visibility: hidden;
+    width: 23%;
+    margin-left: 75%;
+    margin-top: 10%;
+    position: absolute;
+}
+
+#blog {
+    position: relative;
+}
+#blog:hover .btnblogadd {
+    visibility: visible
+}
+.btnblogadd:hover {
+     background-color: #f7ac8c
+}
+}
+.btnadd:hover {
+    background-color: #f7ac8c
+}
+.btnartedit:hover {
+    background-color: #f7ac8c
+}
+.btnedit:hover {
+    background-color: #f7ac8c
+}

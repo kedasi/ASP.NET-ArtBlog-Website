@@ -10,7 +10,11 @@ namespace Domain.Models
     public class Comment
     {
         public int CommentId { get; set; }
-        [MinLength(5), MaxLength(1000), Required]
+
+
+        [Required(ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resources.Common))]
+        [MaxLength(1000, ErrorMessageResourceName = nameof(Resources.Domain.CommentTooLong), ErrorMessageResourceType = typeof(Resources.Domain))]
+        [MinLength(5, ErrorMessageResourceName = nameof(Resources.Domain.CommentTooShort), ErrorMessageResourceType = typeof(Resources.Domain))]
         public string CommentText { get; set; }
 
         //fk
