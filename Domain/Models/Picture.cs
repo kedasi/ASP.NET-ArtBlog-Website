@@ -5,10 +5,11 @@ using System.Data.Entity.Migrations.Model;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Identity;
 
 namespace Domain.Models
 {
-    public class Picture
+    public class Picture : BaseEntity
     {
         public int PictureId { get; set; }
 
@@ -22,7 +23,7 @@ namespace Domain.Models
 
      //fk
         public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public virtual UserInt User { get; set; }
         public virtual List<Comment> Comments { get; set; }
         public virtual List<PictureRating> PictureRatings { get; set; }
     }

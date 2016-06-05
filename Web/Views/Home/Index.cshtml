@@ -1,4 +1,8 @@
-﻿<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin
+@model Web.ViewModels.HomeIndexViewModel
+
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 <div class="buttonsappear">
    
 </div>
@@ -6,11 +10,12 @@
     <div id="containleft">
         <div id="aboutme">
 
-            <button type="button" id="editbtn"  class="btn btn-info btn-lg btnedit">
+            <a href='@Url.Action("Edit", "Users", new { id = User.Identity.GetUserId<int>() })'class="btn btn-info btn-lg btnedit" id = "editbtn">
                 <span class="glyphicon glyphicon-pencil"></span>
-            </button>
-            <h2 id="aboutmehead">Hello, I am Kerli.</h2>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            </a>
+
+            <h2 id="aboutmehead">Hello, I am @Model.UserInt.AboutMeHeader.</h2>
+            <p>@Model.UserInt.AboutMe</p>
         </div>
         <hr/>
         <div id="gallery">

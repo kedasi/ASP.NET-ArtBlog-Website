@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Identity;
 
 namespace Domain.Models
 {
-    public class Comment
+    public class Comment : BaseEntity
     {
         public int CommentId { get; set; }
 
@@ -22,6 +23,6 @@ namespace Domain.Models
         public virtual Picture Picture { get; set; }
 
         public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public virtual UserInt User { get; set; }
     }
 }

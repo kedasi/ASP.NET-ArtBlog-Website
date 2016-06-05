@@ -31,17 +31,20 @@ namespace DAL.Helpers
         {
             return new Dictionary<Type, Func<IDbContext, object>>
             {
-                //{typeof(IUserRepository), dbContext => new UserRepository(dbContext)},
-                //{typeof(IUserRoleRepository), dbContext => new UserRoleRepository(dbContext)},
-                //{typeof(IUserClaimRepository), dbContext => new UserClaimRepository(dbContext)},
-                //{typeof(IUserLoginRepository), dbContext => new UserLoginRepository(dbContext)},
+                {typeof(IBlogEntryRepository), dbContext => new BlogEntryRepository(dbContext)},
+                {typeof(ICommentRepository), dbContext => new CommentRepository(dbContext)},
+                {typeof(IPictureRatingRepository), dbContext => new PictureRatingRepository(dbContext)},
+                {typeof(IPictureRepository), dbContext => new PictureRepository(dbContext)},
+                {typeof(IRatingRepository), dbContext => new RatingRepository(dbContext)},
 
-               {typeof(IBlogEntryRepository), dbContext => new BlogEntryRepository(dbContext)},
-               {typeof(ICommentRepository), dbContext => new CommentRepository(dbContext)},
-               {typeof(IPictureRatingRepository), dbContext => new PictureRatingRepository(dbContext)},
-               {typeof(IPictureRepository), dbContext => new PictureRepository(dbContext)},
-               {typeof(IRatingRepository), dbContext => new RatingRepository(dbContext)},
-               {typeof(IUserRepository), dbContext => new UserRepository(dbContext)},
+                {typeof (IUserIntRepository), dbContext => new UserIntRepository(dbContext)},
+                {typeof (IUserRoleIntRepository), dbContext => new UserRoleIntRepository(dbContext)},
+                {typeof (IUserClaimIntRepository), dbContext => new UserClaimIntRepository(dbContext)},
+                {typeof (IUserLoginIntRepository), dbContext => new UserLoginIntRepository(dbContext)},
+                {typeof (IRoleIntRepository), dbContext => new RoleIntRepository(dbContext)},
+
+                {typeof (IArticleRepository), dbContext => new ArticleRepository(dbContext)},
+
 
             };
         }

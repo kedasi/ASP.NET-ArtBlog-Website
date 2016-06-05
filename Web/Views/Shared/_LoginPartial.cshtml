@@ -1,4 +1,6 @@
-﻿@using Web.Helpers
+﻿@using System.Web
+@using Microsoft.AspNet.Identity
+@using Web.Helpers
 @{
     var culture = CultureHelper.GetCurrentUICulture().ToLower();
 
@@ -9,7 +11,7 @@
     //var returnUrl = Request.Url?.PathAndQuery ?? "";
 }
 
-@*@if (Request.IsAuthenticated)
+@if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
@@ -37,13 +39,13 @@
     }
 }
 else
-{*@
-<ul class="nav navbar-nav navbar-right">
-    <li class="@Html.Raw(culture == "et" ? "list-group-item-success" : "")">
-        @Html.ActionLink("Est", "SetLanguage", new { area = "", controller = "Language", culture = "et", returnUrl }, htmlAttributes: new { id = "langLinkEst" })
-    </li>
-    <li class="@Html.Raw(culture == "en" ? "list-group-item-success" : "")">
-        @Html.ActionLink("Eng", "SetLanguage", new { area = "", controller = "Language", culture = "en", returnUrl }, htmlAttributes: new { id = "langLinkEng" })
-    </li>
-</ul>
-@*}*@
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li class="@Html.Raw(culture == "et" ? "list-group-item-success" : "")">
+            @Html.ActionLink("Est", "SetLanguage", new { area = "", controller = "Language", culture = "et", returnUrl }, htmlAttributes: new { id = "langLinkEst" })
+        </li>
+        <li class="@Html.Raw(culture == "en" ? "list-group-item-success" : "")">
+            @Html.ActionLink("Eng", "SetLanguage", new { area = "", controller = "Language", culture = "en", returnUrl }, htmlAttributes: new { id = "langLinkEng" })
+        </li>
+    </ul>
+}

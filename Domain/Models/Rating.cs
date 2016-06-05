@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Models
 {
-    public class Rating
+    public class Rating : BaseEntity
     {
         public int RatingId { get; set; }
         public int Rate { get; set; }

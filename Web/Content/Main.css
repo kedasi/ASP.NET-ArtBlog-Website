@@ -181,11 +181,13 @@ hr {
     visibility: hidden;
     width: 8%;
     margin-left: 95%;
-    margin-top: 30%;
+    margin-top: 0%;
     position: absolute;
 }
+
 #aboutme {
     position: relative;
+  
 }
 #aboutme:hover .btnedit {
     visibility: visible

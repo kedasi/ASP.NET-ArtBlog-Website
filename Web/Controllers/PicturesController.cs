@@ -53,7 +53,7 @@ namespace Web.Controllers
         {
             var vm = new PictureCreateEditViewModel()
             {
-                Users = new SelectList(this._uow.Users.All, nameof(Domain.Models.User.UserId), nameof(Domain.Models.User.Username))
+                Users = new SelectList(this._uow.UsersInt.All, nameof(Domain.Identity.UserInt.Id), nameof(Domain.Identity.UserInt.UserName))
             };
             return View(vm);
         }
@@ -71,8 +71,8 @@ namespace Web.Controllers
                 _uow.Commit();
                 return RedirectToAction("Index");
             }
-            vm.Users= new SelectList(this._uow.Users.All, nameof(Domain.Models.User.UserId),
-                nameof(Domain.Models.User.Username), vm.Picture.UserId);
+            vm.Users= new SelectList(this._uow.UsersInt.All, nameof(Domain.Identity.UserInt.Id),
+                nameof(Domain.Identity.UserInt.UserName), vm.Picture.UserId);
             return View(vm);
         }
 
@@ -91,8 +91,8 @@ namespace Web.Controllers
             var vm = new PictureCreateEditViewModel()
             {
                 Picture = picture,
-                Users = new SelectList(this._uow.Users.All, nameof(Domain.Models.User.UserId),
-                nameof(Domain.Models.User.Username), picture.UserId)
+                Users = new SelectList(this._uow.UsersInt.All, nameof(Domain.Identity.UserInt.Id),
+                nameof(Domain.Identity.UserInt.UserName), picture.UserId)
         };
             return View(vm);
         }
@@ -110,8 +110,8 @@ namespace Web.Controllers
                 _uow.Commit();
                 return RedirectToAction("Index");
             }
-            vm.Users = new SelectList(this._uow.Users.All, nameof(Domain.Models.User.UserId),
-                nameof(Domain.Models.User.Username), vm.Picture.UserId);
+            vm.Users = new SelectList(this._uow.UsersInt.All, nameof(Domain.Identity.UserInt.Id),
+                nameof(Domain.Identity.UserInt.UserName), vm.Picture.UserId);
             return View(vm);
         }
 

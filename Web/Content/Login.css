@@ -1,0 +1,102 @@
+﻿body {
+    background-image: url(blurbg.jpg);
+    background-repeat: no-repeat;
+    background-size: 1366px 768px;
+    min-width: 1366px;
+    min-height: 768px;
+    background-position: center;
+   background-attachment: fixed;
+    
+}
+
+#titleheader {
+    font-family: "Sigmar One";
+    color: white;
+    text-align: center;
+    margin-top: 15%;
+    margin-left: 45%;
+}
+
+#emailfield {
+    border: none;
+    border-radius: 0;
+    font-family: "Raleway";
+    margin-left: 65%;
+    margin-right: 65%;
+    width: 350px;
+    color: #862651;
+    font-weight: bold;
+        margin-bottom:0
+
+
+}
+.text-danger {
+    text-align: center;
+    margin-left: 80%;
+    color: #f3cfb3;
+     font-family: "Raleway"
+   
+}
+#passwordfield {
+border: none;
+    border-radius: 0;
+    font-family: "Raleway";
+    margin-left: 65%;
+    margin-right: 65%;
+    width: 350px;
+    color: #862651;
+    font-weight: bold;
+        margin-top:0
+}
+
+
+.form-control::-webkit-input-placeholder {
+    color: #d986ba;
+    font-weight: normal
+    
+    
+    
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #f3cfb3 inset;
+    -webkit-text-fill-color: #5e2751 !important;
+    font-weight: bold;
+
+}
+
+.checkbox {
+    margin-left: 60%;
+    margin-top: 0;
+    color: #f3cfb3;
+    font-family: "Raleway"
+}
+
+
+.btnlogin {
+    border: none;
+    border-radius: 0;
+    background-color: #ca333b;
+    font-family: "Raleway";
+    color: white;
+    font-weight: bold;
+    width: 170px;
+    margin-left: 44.5%
+}
+.btnlogin:hover  {
+    background-color: #e0523d;
+
+}
+.btnregister:hover {
+    background-color: #e0523d;
+    
+}
+
+.btnregister {
+    border: none;
+    border-radius: 0;
+    background-color:  #891538;
+    font-family: "Raleway";
+    color: white;
+    font-weight: bold;
+    width: 172px;
+}

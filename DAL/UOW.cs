@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Interfaces;
+using Domain;
 
 namespace DAL
 {
@@ -39,8 +40,8 @@ namespace DAL
         }
 
         //standard repos
-        //public IEFRepository<MultiLangString> MultiLangStrings => GetStandardRepo<MultiLangString>();
-
+        public IEFRepository<MultiLangString> MultiLangStrings => GetStandardRepo<MultiLangString>();
+        public IEFRepository<Translation> Translations => GetStandardRepo<Translation>();
         //standard end
 
         // repo with custom methods
@@ -52,7 +53,12 @@ namespace DAL
         public IPictureRatingRepository PictureRatings => GetRepo<IPictureRatingRepository>();
         public IPictureRepository Pictures => GetRepo<IPictureRepository>();
         public IRatingRepository Ratings => GetRepo<IRatingRepository>();
-        public IUserRepository Users => GetRepo<IUserRepository>();
+        public IUserIntRepository UsersInt => GetRepo<IUserIntRepository>();
+        public IUserRoleIntRepository UserRolesInt => GetRepo<IUserRoleIntRepository>();
+        public IRoleIntRepository RolesInt => GetRepo<IRoleIntRepository>();
+        public IUserClaimIntRepository UserClaimsInt => GetRepo<IUserClaimIntRepository>();
+        public IUserLoginIntRepository UserLoginsInt => GetRepo<IUserLoginIntRepository>();
+        public IArticleRepository Articles => GetRepo<IArticleRepository>();
 
 
 

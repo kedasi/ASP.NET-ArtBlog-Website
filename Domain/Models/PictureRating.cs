@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Models
 {
-    public class PictureRating
+    public class PictureRating : BaseEntity
     {
         public int PictureRatingId { get; set; }
 

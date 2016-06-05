@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Identity;
 
 namespace Domain.Models
 {
-   public class BlogEntry
+   public class BlogEntry : BaseEntity
     {
        public int BlogEntryId { get; set; }
 
@@ -25,6 +26,6 @@ namespace Domain.Models
         //fk
 
        public int UserId { get; set; }
-       public virtual User User { get; set; }
+       public virtual UserInt User { get; set; }
     }
 }

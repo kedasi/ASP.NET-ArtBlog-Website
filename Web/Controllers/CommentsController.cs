@@ -52,7 +52,7 @@ namespace Web.Controllers
         {
             var vm = new CommentCreateEditViewModel()
             {
-                Users = new SelectList(this._uow.Users.All, nameof(Domain.Models.User.UserId), nameof(Domain.Models.User.Username)),
+                Users = new SelectList(this._uow.UsersInt.All, nameof(Domain.Identity.UserInt.Id), nameof(Domain.Identity.UserInt.UserName)),
                 Pictures = new SelectList(this._uow.Pictures.All, nameof(Picture.PictureId), nameof(Picture.PictureTitle))
             };
 
@@ -72,8 +72,8 @@ namespace Web.Controllers
                 _uow.Commit();
                 return RedirectToAction("Index");
             }
-            vm.Users = new SelectList(this._uow.Users.All, nameof(Domain.Models.User.UserId),
-            nameof(Domain.Models.User.Username), vm.Comment.UserId);
+            vm.Users = new SelectList(this._uow.UsersInt.All, nameof(Domain.Identity.UserInt.Id),
+            nameof(Domain.Identity.UserInt.UserName), vm.Comment.UserId);
             vm.Pictures = new SelectList(this._uow.Pictures.All, nameof(Picture.PictureId),
                 nameof(Picture.PictureTitle), vm.Comment.PictureId);
 
@@ -95,8 +95,8 @@ namespace Web.Controllers
             var vm = new CommentCreateEditViewModel()
             {
                 Comment = comment,
-                Users = new SelectList(this._uow.Users.All, nameof(Domain.Models.User.UserId),
-            nameof(Domain.Models.User.Username), comment.UserId),
+                Users = new SelectList(this._uow.UsersInt.All, nameof(Domain.Identity.UserInt.Id),
+            nameof(Domain.Identity.UserInt.UserName), comment.UserId),
             Pictures = new SelectList(this._uow.Pictures.All, nameof(Picture.PictureId),
                 nameof(Picture.PictureTitle), comment.PictureId)
         };
@@ -118,8 +118,8 @@ namespace Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            vm.Users = new SelectList(this._uow.Users.All, nameof(Domain.Models.User.UserId),
-            nameof(Domain.Models.User.Username), vm.Comment.UserId);
+            vm.Users = new SelectList(this._uow.UsersInt.All, nameof(Domain.Identity.UserInt.Id),
+            nameof(Domain.Identity.UserInt.UserName), vm.Comment.UserId);
             vm.Pictures = new SelectList(this._uow.Pictures.All, nameof(Picture.PictureId),
                 nameof(Picture.PictureTitle), vm.Comment.PictureId);
 

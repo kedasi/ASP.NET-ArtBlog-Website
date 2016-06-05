@@ -1,14 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure.Interception;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
+using DataAnnotations;
+using DAL.EFConfiguration;
+using DAL.Helpers;
 using DAL.Interfaces;
+using Domain;
+using Domain.Identity;
 using Ninject;
 
 namespace DAL
@@ -16,19 +20,23 @@ namespace DAL
     public class DataBaseContext : DbContext, IDbContext
     {
         private readonly string _instanceId = Guid.NewGuid().ToString();
+        private readonly IUserNameResolver _userNameResolver;
 
         [Inject]
-        public DataBaseContext() : base("name=DataBaseConnectionStr")
+        public DataBaseContext(IUserNameResolver userNameResolver)
+            : base("name=DataBaseConnectionStr")
         {
+            _userNameResolver = userNameResolver;
 
 
             //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataBaseContext,Migrations.Configuration>());
             //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DataBaseContext>());
             Database.SetInitializer(new DatabaseInitializer());
 
-#if DEBUG
+
+            #if DEBUG
             this.Database.Log = s => Trace.Write(s);
-#endif
+            #endif
 
             //DbInterception.Add(new NLogCommandInterceptor(_logger));
 
@@ -36,10 +44,11 @@ namespace DAL
             //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DataBaseContext>());
         }
 
+        //hack for mvc scaffolding, paramaterles constructor is required
+        public DataBaseContext() : this(new UserNameResolver(() => "Anonymous"))
+        {
 
-
-        //public IDbSet<Person> Persons { get; set; }
-
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //base.OnModelCreating(modelBuilder);
@@ -50,14 +59,54 @@ namespace DAL
             //modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
+            // Identity, PK - string 
+            //modelBuilder.Configurations.Add(new RoleMap());
+            //modelBuilder.Configurations.Add(new UserClaimMap());
+            //modelBuilder.Configurations.Add(new UserLoginMap());
+            //modelBuilder.Configurations.Add(new UserMap());
+            //modelBuilder.Configurations.Add(new UserRoleMap());
+
+            // Identity, PK - int 
+            modelBuilder.Configurations.Add(new RoleIntMap());
+            modelBuilder.Configurations.Add(new UserClaimIntMap());
+            modelBuilder.Configurations.Add(new UserLoginIntMap());
+            modelBuilder.Configurations.Add(new UserIntMap());
+            modelBuilder.Configurations.Add(new UserRoleIntMap());
+
+            Precision.ConfigureModelBuilder(modelBuilder);
+
             // convert all datetime and datetime? properties to datetime2 in ms sql
             // ms sql datetime has min value of 1753-01-01 00:00:00.000
             modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
+
+            // use Date type in ms sql, where [DataType(DataType.Date)] attribute is used
+            modelBuilder.Properties<DateTime>()
+           .Where(x => x.GetCustomAttributes(false).OfType<DataTypeAttribute>()
+           .Any(a => a.DataType == DataType.Date))
+           .Configure(c => c.HasColumnType("date"));
+
 
         }
 
         public override int SaveChanges()
         {
+
+            // Update metafields in entitys, that implement IBaseEntity - CreatedAtDT, CreatedBy, etc
+            var entities =
+                ChangeTracker.Entries()
+                .Where(x => x.Entity is IBaseEntity && (x.State == EntityState.Added || x.State == EntityState.Modified));
+
+            foreach (var entity in entities)
+            {
+                if (entity.State == EntityState.Added)
+                {
+                    ((IBaseEntity)entity.Entity).CreatedAtDT = DateTime.Now;
+                    ((IBaseEntity)entity.Entity).CreatedBy = _userNameResolver.CurrentUserName;
+                }
+
+                ((IBaseEntity)entity.Entity).ModifiedAtDT = DateTime.Now;
+                ((IBaseEntity)entity.Entity).ModifiedBy = _userNameResolver.CurrentUserName;
+            }
 
             // Custom exception - gives much more details why EF Validation failed
             // or watch this inside exception ((System.Data.Entity.Validation.DbEntityValidationException)$exception).EntityValidationErrors
@@ -67,13 +116,12 @@ namespace DAL
             }
             catch (DbEntityValidationException e)
             {
-                throw e;
+                var newException = new FormattedDbEntityValidationException(e);
+                throw newException;
             }
         }
 
         public System.Data.Entity.DbSet<Domain.Models.BlogEntry> BlogEntries { get; set; }
-
-        public System.Data.Entity.DbSet<Domain.Models.User> Users { get; set; }
 
         public System.Data.Entity.DbSet<Domain.Models.Comment> Comments { get; set; }
 
@@ -83,12 +131,17 @@ namespace DAL
 
         public System.Data.Entity.DbSet<Domain.Models.Rating> Ratings { get; set; }
 
-        //public System.Data.Entity.DbSet<Domain.Models.Warehouse> Warehouses { get; set; }
+        // Identity tables, PK - int
+        public IDbSet<RoleInt> RolesInt { get; set; }
+        public IDbSet<UserClaimInt> UserClaimsInt { get; set; }
+        public IDbSet<UserLoginInt> UserLoginsInt { get; set; }
+        public IDbSet<UserInt> UsersInt { get; set; }
+        public IDbSet<UserRoleInt> UserRolesInt { get; set; }
 
-        //public System.Data.Entity.DbSet<Domain.Models.WarehouseItem> WarehouseItems { get; set; }
+        // Article and translation tables
+        public IDbSet<Article> Articles { get; set; }
+        public IDbSet<MultiLangString> MultiLangStrings { get; set; }
+        public IDbSet<Translation> Translations { get; set; }
 
-        //public System.Data.Entity.DbSet<Domain.Models.Item> Items { get; set; }
-
-        //public System.Data.Entity.DbSet<Domain.Models.Category> Categories { get; set; }
     }
 }

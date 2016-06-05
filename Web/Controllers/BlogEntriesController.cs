@@ -52,7 +52,7 @@ namespace Web.Controllers
         {
             var vm = new BlogEntryCreateEditViewModel()
             {
-                Users = new SelectList(this._uow.Users.All, nameof(Domain.Models.User.UserId), nameof(Domain.Models.User.Username))
+                Users = new SelectList(this._uow.UsersInt.All, nameof(Domain.Identity.UserInt.Id), nameof(Domain.Identity.UserInt.UserName))
             };
             return View(vm);
         }
@@ -70,8 +70,8 @@ namespace Web.Controllers
                 _uow.Commit();
                 return RedirectToAction("Index");
             }
-            vm.Users = new SelectList(this._uow.Users.All, nameof(Domain.Models.User.UserId),
-               nameof(Domain.Models.User.Username), vm.BlogEntry.User.UserId);
+            vm.Users = new SelectList(this._uow.UsersInt.All, nameof(Domain.Identity.UserInt.Id),
+               nameof(Domain.Identity.UserInt.UserName), vm.BlogEntry.User.Id);
             return View(vm);
         }
 
@@ -91,8 +91,8 @@ namespace Web.Controllers
             var vm = new BlogEntryCreateEditViewModel()
             {
                 BlogEntry = blogEntry,
-                Users = new SelectList(this._uow.Users.All, nameof(Domain.Models.User.UserId),
-               nameof(Domain.Models.User.Username), blogEntry.User.UserId)
+                Users = new SelectList(this._uow.UsersInt.All, nameof(Domain.Identity.UserInt.Id),
+               nameof(Domain.Identity.UserInt.UserName), blogEntry.User.Id)
         };
             return View(vm);
         }
@@ -110,8 +110,8 @@ namespace Web.Controllers
                 _uow.Commit();
                 return RedirectToAction("Index");
             }
-            vm.Users = new SelectList(this._uow.Users.All, nameof(Domain.Models.User.UserId),
-              nameof(Domain.Models.User.Username), vm.BlogEntry.User.UserId);
+            vm.Users = new SelectList(this._uow.UsersInt.All, nameof(Domain.Identity.UserInt.Id),
+              nameof(Domain.Identity.UserInt.UserName), vm.BlogEntry.User.Id);
             return View(vm);
         }
 

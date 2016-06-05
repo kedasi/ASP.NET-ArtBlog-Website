@@ -15,12 +15,11 @@
             </button>
 
             <ul class="dropdown-menu dropdown-menu-right drop" id="dropdownMenu1">
-                <li><a href="#">Profile</a></li>
+                <li><a href='@Url.Action("Index", "Home")'>Profile</a></li>
                 <li><a href="#">Top</a></li>
                 <li><a href="#">Settings</a></li>
-                <li><a href="#">Log off</a></li>
-                
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
             </ul>
+          @*  <text>(<a href="javascript:document.getElementById('logoutForm').submit()">@Resources.Common.LogOff</a>)</text>*@
         </div>
-  
 </div>
